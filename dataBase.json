@@ -1,0 +1,46 @@
+[
+    {
+        "title": "go to study",
+        "isDone": false
+    },
+    {
+        "title": "do this task",
+        "isDone": false
+    },
+    {
+        "title": "have a lunch",
+        "isDone": false
+    },
+    {
+        "title": "end tasks",
+        "isDone": false
+    },
+    {
+        "title": "have a rest",
+        "isDone": false
+    },
+    {
+        "title": "cooking dinner",
+        "isDone": false
+    },
+    {
+        "title": "read te book",
+        "isDone": false
+    },
+    {
+        "title": "play with cat",
+        "isDone": false
+    },
+    {
+        "title": "sleep well",
+        "isDone": false
+    },
+    {
+        "title": "clean the room",
+        "isDone": false
+    },
+    {
+        "title": "anoter plans",
+        "isDone": false
+    }
+]
