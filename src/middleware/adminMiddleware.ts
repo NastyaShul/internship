@@ -1,18 +1,22 @@
-const jwt = require("jsonwebtoken");
-const {secret} = require("../config");
+import { NextFunction, Request, Response } from 'express';
+import jwt from "jsonwebtoken";
+import {secret} from "../config";
 
-module.exports = function(roles){
-    return function(req, res, next){
+export const adminMiddleware = (roles: string[]) => {
+    return function(req: Request, res: Response, next: NextFunction){
         if(req.method === "options"){
             next();
         }
     
         try{
-            const token = req.headers.authorization.split(" ")[1];
+            interface JwtPayload {
+                roles: string[]
+              }
+            const token = req.headers.authorization?.split(" ")[1];
             if(!token){
-                return res.status(403).json({message: "Only for admins"})
+                return res.status(403).json({message: "Only for admins"});
             }
-            const {roles: userRoles} = jwt.verify(token, secret);
+            const {roles: userRoles} = jwt.verify(token, secret) as JwtPayload;
             let hasRole = false;
             userRoles.forEach(role => {
                 if(roles.includes(role)){
@@ -29,4 +33,4 @@ module.exports = function(roles){
             return res.status(403).json({message: "Only for admins"})
         }
     }
-};
+}
